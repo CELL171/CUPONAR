@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-ink font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* Botones base */
+  .btn {
+    @apply h-[42px] px-[18px] rounded-[10px] border border-ink bg-ink text-paper font-semibold cursor-pointer inline-flex items-center gap-2 whitespace-nowrap transition-colors;
+  }
+  .btn:hover {
+    @apply bg-ink-soft;
+  }
+  .btn-ghost {
+    @apply bg-transparent text-ink;
+  }
+  .btn-ghost:hover {
+    @apply bg-ink/5;
+  }
+  .btn-accent {
+    @apply bg-accent text-ink border-accent-deep;
+  }
+  .btn-accent:hover {
+    @apply bg-accent-deep;
+  }
+
+  /* Chips de filtro */
+  .chip {
+    @apply py-[7px] px-[14px] border border-line-strong rounded-full bg-paper text-[13px] font-medium text-ink-soft cursor-pointer transition-all whitespace-nowrap;
+  }
+  .chip:hover {
+    @apply border-ink text-ink;
+  }
+  .chip.active {
+    @apply bg-ink text-paper border-ink;
+  }
+
+  /* Card "ticket" con muescas */
+  .promo-card {
+    @apply bg-paper border border-line rounded-[14px] p-[22px] relative shadow-card transition-all flex flex-col gap-[14px];
+  }
+  .promo-card:hover {
+    @apply -translate-y-0.5 shadow-card-hover;
+  }
+  .promo-card::before,
+  .promo-card::after {
+    content: '';
+    @apply absolute w-4 h-4 bg-bg border border-line rounded-full top-1/2 -translate-y-1/2;
+  }
+  .promo-card::before {
+    left: -9px;
+  }
+  .promo-card::after {
+    right: -9px;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-3 py-[10px] border border-line-strong rounded-lg text-sm bg-paper text-ink transition-all;
+  }
+  .input:focus {
+    @apply outline-none border-ink;
+    box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.08);
+  }
+
+  /* Labels de campo */
+  .field-label {
+    @apply text-xs font-semibold text-ink-soft uppercase tracking-wider;
+  }
+  .field-hint {
+    @apply text-[11px] text-muted font-normal normal-case tracking-normal;
+  }
+}
+
+/* Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Highlight tipo marker en el hero */
+.marker-highlight {
+  background-image: linear-gradient(to bottom, transparent 60%, #ffd60a 60%);
+  padding: 0 4px;
+}
